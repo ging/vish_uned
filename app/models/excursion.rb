@@ -152,6 +152,16 @@ class Excursion < ActiveRecord::Base
     #Copy excursion theme
     zip_folder(t.path,"#{Rails.root}/lib/plugins/vish_editor/app/assets",themesPath + theme)
 
+    #UNED VE customization
+    Zip::File.open(t.path, Zip::File::CREATE) { |zipfile|
+      #Copy UNED VE theme
+      zipfile.add("stylesheets/all/ve_theme.css","#{Rails.root}/vendor/assets/stylesheets/ve_theme_packaged.css")
+      #Copy UNED watermark
+      # zipfile.add("images/vicons/watermark_uned.png","#{Rails.root}/vendor/assets/images/vetheme/watermark_uned.png")
+      #Copy UNED JS locales
+      zipfile.add("javascripts/ve_uned_locales.js","#{Rails.root}/vendor/assets/javascript/ve_uned_locales.js")
+    }
+
     t.close
   end
 
@@ -351,6 +361,16 @@ class Excursion < ActiveRecord::Base
     themes.compact.uniq.each do |theme|
       zip_folder(t.path,"#{Rails.root}/lib/plugins/vish_editor/app/assets",themesPath + theme) if File.exists?(themesPath + theme)
     end
+
+    #Add UNED locales
+    Zip::File.open(t.path, Zip::File::CREATE) { |zipfile|
+      #Copy UNED VE theme
+      zipfile.add("stylesheets/all/ve_theme.css","#{Rails.root}/vendor/assets/stylesheets/ve_theme_packaged.css")
+      #Copy UNED watermark
+      # zipfile.add("images/vicons/watermark_uned.png","#{Rails.root}/vendor/assets/images/vetheme/watermark_uned.png")
+      #Copy UNED JS locales
+      zipfile.add("javascripts/ve_uned_locales.js","#{Rails.root}/vendor/assets/javascript/ve_uned_locales.js")
+    }
 
     t.close
   end
