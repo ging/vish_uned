@@ -12,6 +12,10 @@ module HomeHelper
     subject_content subject, Excursion, options
   end
 
+  def subject_ediphy_documents(subject, options = {})
+    subject_content subject, EdiphyDocument, options
+  end
+
   def subject_workshops(subject, options = {})
     subject_content subject, Workshop, options
   end
@@ -75,6 +79,7 @@ module HomeHelper
     options[:offset] ||= 0
     options[:page] ||= 0 #page 0 means without pagination
     options[:force_filter_private] ||= false
+    options[:force_filter_private_ignoring_scope] ||= false
     options[:sort_by] ||="popularity"
 
     case options[:sort_by]
@@ -117,14 +122,20 @@ module HomeHelper
       query = query.not_authored_by(following_ids)
     end
 
+
     #Filtering private entities
     unless ((defined?(current_subject)&&((options[:scope] == :me && subject == current_subject)||(!current_subject.nil? && current_subject.admin?)))&&(options[:force_filter_private]==false))
       query = query.includes("activity_object_audiences")
       query = query.where("activity_object_audiences.relation_id='"+Relation::Public.instance.id.to_s+"' and activity_objects.scope=0")
+    else
+      if options[:force_filter_private_ignoring_scope]==true
+        query = query.includes("activity_object_audiences")
+        query = query.where("activity_object_audiences.relation_id='"+Relation::Public.instance.id.to_s+"'")
+      end
     end
 
     query = query.order(options[:order_by]) unless options[:order_by].blank?
-  
+
     query = query.offset(options[:offset]) if options[:offset] > 0
 
     # pagination, 0 means without pagination
@@ -139,11 +150,10 @@ module HomeHelper
     #Optimization code
     #(Old version) return query.map{|ao| ao.object} if klass.is_a?(Array)
     query = if klass.is_a?(Array)
-              query.includes(klass.map{ |e| e.to_s.downcase.to_sym} + [:received_actions, { :received_actions => [:actor]}])
+              query.includes(klass.map{ |e| e.to_s.underscore.to_sym} + [:received_actions, { :received_actions => [:actor]}])
             else
               query.includes([:activity_object, :received_actions, { :received_actions => [:actor]}])
             end
-            
     query
   end
 

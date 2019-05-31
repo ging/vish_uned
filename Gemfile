@@ -48,6 +48,8 @@ gem 'sitemap_generator'
 gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
 gem 'jwt', '= 1.4.1'
 gem 'rake', '10.5.0'
+gem 'ejs', '=1.1.1'
+gem 'browser', '=2.5.3'
 
 #Gems from Git repositories
 gem 'delegates_attributes_to', :git => 'git://github.com/pahanix/delegates_attributes_to.git', :ref => '69704cb'
@@ -79,6 +81,9 @@ gem 'devise_invitable', '= 1.1.8'
 
 #CAS
 gem 'devise_cas_authenticatable', '= 1.7.1'
+
+#oauth2
+gem 'omniauth-oauth2', '= 1.1.2'
 
 #recaptcha
 gem "recaptcha", require: "recaptcha/rails"

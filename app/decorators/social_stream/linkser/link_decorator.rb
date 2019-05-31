@@ -42,4 +42,16 @@ Link.class_eval do
     end
   end
 
+  def as_json(options = nil)
+    {
+     :id => id,
+     :title => title,
+     :description => description,
+     :author => author.name,
+     :url => url,
+     :is_embed => is_embed,
+     :type => "Link"
+    }
+  end
+
 end

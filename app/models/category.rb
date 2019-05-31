@@ -158,6 +158,20 @@ class Category < ActiveRecord::Base
     Excursion.createSCORMForGroup(version,folderPath,fileName,excursions,controller,options)
   end
 
+  def as_json(options = nil)
+    json = {
+     :id => id,
+     :title => title,
+     :description => description,
+     :author => author.name,
+     :url => options[:helper].polymorphic_url(self),
+     :elements => property_objects.map{|ao| ao.getGlobalId },
+     :type => self.class.name
+    }
+    json[:category_order] = self.category_order unless self.category_order.blank?
+    json
+  end
+
   private
 
   def check_property_objects

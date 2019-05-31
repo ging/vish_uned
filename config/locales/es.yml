@@ -19,6 +19,7 @@ es:
         category: "Categoría añadida"
         course: "Curso añadido"
         document: "Documento añadido"
+        ediphy_document: "Documento Ediphy añadido"
         embed: "Embed añadido"
         event: "Evento añadido"
         excursion: "Excursión añadida"
@@ -385,6 +386,25 @@ es:
     required_fields: "*Estos campos son obligatorios"
     show_password: "Contraseña del curso en Moodle (solo visible para inscritos)"
     tags: "Etiquetas"
+  ediphy_document:
+    actions:
+      add: "Añadir EDiphy"
+      delete: "Eliminar"
+      clone: "Clonar"
+      delete_alert: "¿Estás seguro? Si eliminas este documento los cambios NO podrán recuperarse."
+      edit: "Editar"
+      favorite: "Favoritas"
+      download_scorm: "Un paquete SCORM es un conjunto de archivos que se empaquetan conforme a un estándar para  objetos de aprendizaje. Los paquetes SCORM son ficheros zip que pueden ser integrados en cualquier plataforma de aprendizaje que soporte el estándar (Moodle, Blackboard, …) y que pueden ser utilizados para la presentación de contenidos multimedia y como herramientas de evaluación. Por tanto, puedes integrar tu Documento Ediphy en Moodle y otras plataformas de aprendizaje descargándola como SCORM."
+      scorm12: "SCORM 1.2"
+      scorm2004: "SCORM 2004"
+      html: "HTML"
+    clone:
+      confirm: "Esto clonará el documento Ediphy en tu propio repositorio y la abrirá para editarla"
+      not_found: "Documento Ediphy no encontradO"
+      ok: "Clonado con éxito"
+      owner: "Este documento Ediphy ya es tuyo"
+    confirm_delete: "Confirmar borrado"
+    other: "Documentos Ediphy"
   date_name: "fecha"
   description: "descripción"
   devise:
@@ -434,6 +454,8 @@ es:
       create_group_title: "Modal para la creación de grupos de alumnos"
       create_group_p1: "Rellena el formulario con el nombre que desees darle al grupo y el número de alumnos que contiene"
       create_group_p2: "Una vez creado tendrás esa cantidad de cuentas de alumnos y podrás bajarte las credenciales para que accedan"
+      ediphydocument1_html: "Documentos Ediphy"
+      ediphydocument2_html: "En esta sección se muestra el documento Ediphy al que ha accedido.</br> Puede navegar por las páginas del documento Ediphy haciendo clic en las flechas, haciendo clic en la parte izquierda sobre el índice o usando las teclas de dirección del teclado.</br> En la zona de la derecha se muestran los recursos recomendados, bajo el documento Ediphy se muestra la información del mismo, así como opciones para compartirlo , descargarlo (en formato SCORM), notificar contenidos inapropiados o spam, añadirlo a tus favoritos, o añadirlo a una categoría.</br> También puede comentar el documento desde la parte inferior."
       embed:
         title: "Incrustar este enlace"
         content: "Si marca esta opción el sitio web referenciado por el enlace será incrustado en la página de la plataforma correspondiente al enlace añadido. De este modo no sólo se mostrará el texto del enlace sino también el contenido referenciado."
@@ -492,6 +514,7 @@ es:
       types:
         audio: "Audio"
         document: "Documento"
+        ediphydocument: "Documento Ediphy"
         embed: "Objeto Embebido"
         excursion: "Excursión (Presentación Interactiva)"
         imscpfile: "Paquete de contenido IMS"
@@ -589,6 +612,7 @@ es:
       attachment: "Archivo Adjunto"
       bookmark: "marcardor"
       clone: "clonar"
+      translate: "transformar en un documento Ediphy"
       delete: "Borrar"
       download: "Descargar"
       edit: "Editar"
@@ -646,6 +670,12 @@ es:
     session_start: "inicia sesión"
     title:
       other: "excursiones"
+    translate:
+      confirm: "Esto transformará tu excursión en un documento EDiphy conservando el original."
+      confirm_button: "Transformar"
+      not_found: "Excursion no encontrada"
+      ok: "Transformada con éxito"
+      owner: "Esta excursión ya es tuya"
     upcomming: "próxima"
     unload_warning: "¡La excursión no está salvada!"
     top: "paraMí"
@@ -1004,6 +1034,7 @@ es:
       category: "Categorías"
       course: "Cursos"
       document: "Documentos"
+      ediphydocument: "Documentos Ediphy"
       embed: "Embeds"
       event: "Eventos"
       excursion: "Excursiones"
@@ -1059,6 +1090,7 @@ es:
   send:
     send: "Enviar"
   settings:
+    no_change_email: "No puedes cambiar tu email, has logueado con EIDAS"
     notifications:
       briefing: "Cambia tus notificaciones y alertas de correo"
       by_email:

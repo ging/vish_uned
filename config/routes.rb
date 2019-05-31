@@ -12,6 +12,7 @@ Vish::Application.routes.draw do
   deviseControllers[:invitations] = "devise_invitations" if Vish::Application.config.invitations
   deviseControllers[:sessions] = "devise/cas_sessions" if Vish::Application.config.cas
   deviseSkipControllers = [:registrations].push(:registrations) if Vish::Application.config.register_policy == "INVITATION_ONLY"
+  deviseControllers[:omniauth_callbacks] = 'omniauth_callbacks' if Vish::Application.config.oauth2
 
   devise_for :users, :controllers => deviseControllers, :skip => deviseSkipControllers
 
@@ -22,9 +23,17 @@ Vish::Application.routes.draw do
     end
   end
 
+  if Vish::Application.config.oauth2
+    devise_scope :user do
+      get '/users/oauth2_sign_out', to: 'devise/sessions#destroy'
+    end
+  end
+
   match 'users/:id/excursions' => 'users#excursions'
+  match 'users/:id/ediphy_documents' => 'users#ediphy_documents'
   match 'users/:id/workshops' => 'users#workshops'
   match 'users/:id/resources' => 'users#resources'
+  match 'users/:id/all_resources' => 'users#all_resources'
   match 'users/:id/events' => 'users#events'
   match 'users/:id/categories' => 'users#categories'
   match 'users/:id/followers' => 'users#followers'
@@ -71,6 +80,7 @@ Vish::Application.routes.draw do
   #Thumbnails
   match '/thumbnails' => 'excursions#excursion_thumbnails'
 
+  #Excursions
   match 'excursions/last_slide' => 'excursions#last_slide'
   match 'excursions/preview' => 'excursions#preview'
 
@@ -89,7 +99,17 @@ Vish::Application.routes.draw do
   match '/excursions/tmpJson' => 'excursions#uploadTmpJSON', :via => :post
   match '/excursions/tmpJson' => 'excursions#downloadTmpJSON', :via => :get
 
+  match '/excursions/:id/translate' => 'ediphy_documents#translate', :via => :get
+  match '/excursions/translate' => 'ediphy_documents#translate', :via => :post
+
   resources :excursions
+
+  #Ediphy documents
+  match '/ediphy_documents/:id' => 'ediphy_documents#update', :via => :post
+  match '/ediphy_documents/:id/delete' => 'ediphy_documents#destroy', :via => :post
+  match 'ediphy_documents/:id/clone' => 'ediphy_documents#clone'
+
+  resources :ediphy_documents
 
   #Workshops
   match '/workshops/:id/edit_details' => 'workshops#edit_details'

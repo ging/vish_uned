@@ -38,6 +38,11 @@ class Excursion < ActiveRecord::Base
     json
   end
 
+  def to_ediphy
+    require 've_to_ediphy'
+    VETOEDIPHY.translate(json)
+  end
+
   ####################
   ## OAI-PMH Management
   ####################
@@ -1156,7 +1161,7 @@ class Excursion < ActiveRecord::Base
         driver.quit
       rescue
       end
-      puts e.message
+      #puts e.message
       return nil
     end
   end
@@ -1201,8 +1206,8 @@ class Excursion < ActiveRecord::Base
       self.save
     end
 
-    #If LOEP is enabled, upload the excursion to LOEP
-    unless Vish::Application.config.APP_CONFIG['loep'].nil?
+    #If LOEP is enabled and Excursion is evaluable, register the excursion in LOEP
+    if VishConfig.getAvailableEvaluableModels.include?("Excursion")
       VishLoep.sendActivityObject(self.activity_object) rescue nil
     end
   end

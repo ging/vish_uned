@@ -31,6 +31,7 @@ en:
         document: "Document added"
         embed: "Embed added"
         event: "Event added"
+        ediphy_document: "Ediphy Document added"
         excursion: "Excursion added"
         file: "File added"
         link: "Link added"
@@ -409,6 +410,25 @@ en:
     required_fields: "*Required fields"
     show_password: "Course password in Moodle (only for enrolled users)"
     tags: "Tags"
+  ediphy_document:
+    actions:
+      add: "Add EDiphy"
+      delete: "Delete"
+      clone: "Clone"
+      delete_alert: "Are you sure? If you delete this item you will NOT be able to recover it ever again."
+      edit: "Edit"
+      favorite: "Favorite"
+      download_scorm: "A SCORM package is a collection of files which are packaged according to an agreed standard for learning objects. SCORM packages are zip files that can be integrated in any LMS (Learning Management System) that supports the standard (Moodle, Blackboard, …) and that can be used for presenting multimedia content and as assessment tools. Thus, you can integrate your Ediphy Document in Moodle and other LMSs by downloading it as SCORM."
+      scorm12: "SCORM 1.2"
+      scorm2004: "SCORM 2004"
+      html: "HTML"
+    clone:
+      confirm: "This will clone this Ediphy Document to your own repository and will open it for editing"
+      not_found: "Ediphy Document not found"
+      ok: "Succesfully cloned"
+      owner: "You already own this excursion"
+    confirm_delete: "Confirm Delete"
+    other: "Ediphy Documents"
   date_name: "date"
   description: "description"
   devise:
@@ -452,6 +472,8 @@ en:
       create_group_title: "Modal to create groups of pupils"
       create_group_p1: "Fill in the form with the name for the group and the number of pupils accounts"
       create_group_p2: "Once created you will have those accounts and will be able to download the credentials for your pupils to access the platform"
+      ediphydocument1_html: "Ediphy Documents"
+      ediphydocument2_html: "This section shows the ediphy document you have accessed.</br> You can navigate through the ediphy document pages by clicking on the arrow buttons, by using the index on the left side or by using the arrow keys on the keyboard depending the document.</br> On the right zone recommended other resources are shown, under the ediphy document you have the information of it, as well as options to share it, download it (in SCORM format), report inappropriate content or spam, add it to your favorites or add it to a category.</br> You can also comment the ediphy document from the bottom."
       embed:
         title: "Embed this link"
         content: "If you check this option, this link will be embedded in an iframe. This way not only the link will be shown to the user inside the resource page but also the content will be displayed"
@@ -463,7 +485,7 @@ en:
       event4_html : "4. Define the start time and the end (approximately) of it by clicking the clock icons..<br>"
       event5_html : "5. Finally, click on <b> save </b> button to publish your event."
       excursions1_html : "Excursions"
-      excursions2_html : "This section shows the excursion you have accessed.</br> You can navigate through the excursion slides by clicking on the arrow buttons, by clicking on the left or right side of the slides or by using the arrow keys on the keyboard.</br> On the right zone recommended excursions are shown, under the excursion you have the information of it, as well as options to share it, download it (in SCORM format), report inappropriate content or spam, clone it, add it to your favorites or add it to a category.</br> You can also comment the excursión from the bottom."
+      excursions2_html : "This section shows the excursion you have accessed.</br> You can navigate through the excursion slides by clicking on the arrow buttons, by clicking on the left or right side of the slides or by using the arrow keys on the keyboard.</br> On the right zone recommended excursions are shown, under the excursion you have the information of it, as well as options to share it, download it (in SCORM format), report inappropriate content or spam, clone it, add it to your favorites or add it to a category.</br> You can also comment the excursion from the bottom."
       exse_html : "This panel shows the filters applied to the search results."
       exse2_html : "Explore / Search"
       favorite1_html : "Favorites"
@@ -511,6 +533,7 @@ en:
       types:
         audio: "Audio"
         document: "Document"
+        ediphydocument: "Ediphy Document"
         embed: "Embedded Object"
         excursion: "Excursion (Interactive Presentation)"
         imscpfile: "IMS Content Package"
@@ -609,6 +632,7 @@ en:
       attachment: "Attachment"
       bookmark: "bookmark"
       clone: "clone"
+      translate: "transform into an Ediphy Document"
       delete: "delete"
       download: "download"
       edit: "edit"
@@ -667,6 +691,12 @@ en:
       other: "Excursions"
     title:
       other: "excursions"
+    translate:
+      confirm: "This will transform your excursion into an EDiphy Document. The original will be kept."
+      confirm_button: "Confirm"
+      not_found: "Excursion not found"
+      ok: "Succesfully transformed"
+      owner: "You already own this excursion"
     upcomming: "upcoming"
     unload_warning: "The excursion is not saved!"
     top: "forMe"
@@ -1020,6 +1050,7 @@ en:
       category: "Categories"
       course: "Courses"
       document: "Documents"
+      ediphydocument: "Ediphy Documents"
       embed: "Embeds"
       event: "Events"
       excursion: "Excursions"
@@ -1080,6 +1111,7 @@ en:
   send:
     send: "Send"
   settings:
+    no_change_email: "You can't change your email, you are logged in with EIDAS"
     notifications:
       briefing: "Change your notifications behaviour and mail alerts"
       by_email:
